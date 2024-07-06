@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Exam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1861de;
+            --secondary-color: #2991e1;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: orange;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .question p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #555;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+            .question {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="landing">
+            <h1>Web Development Exam Portal</h1>
+            <button onclick="showExam()">Take Exam</button>
+            <button onclick="checkPerformance()">Check Performance</button>
+        </div>
+
+        <div id="exam" style="display: none;">
+            <h1>Web Development Exam</h1>
+            <h2>HTML Section</h2>
+            <div id="htmlQuestions"></div>
+            <h2>CSS Section</h2>
+            <div id="cssQuestions"></div>
+            <h2>JavaScript Section</h2>
+            <div id="jsQuestions"></div>
+            <button onclick="submitExam()">Submit Exam</button>
+        </div>
+
+        <div id="result" style="display: none;"></div>
+        <button onclick="goToIndex()" style="display: none;" id="indexButton">Go to Index</button>
+
+        <div class="social-links">
+            <a href="https://github.com/Hero777-tech" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/adityaxnath/" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+
+    <script src="exam.js"></script>
+</body>
+</html>
