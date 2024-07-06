@@ -1,0 +1,38 @@
+name: Build Website
+
+on:
+  push:
+    branches:
+      - main  # Set a branch name to trigger deployment
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: |
+          npm init -y
+          npm install terser
+
+      - name: Minify JavaScript
+        run: npx terser exam.js -o exam.min.js
+
+      - name: Create deployment package
+        run: |
+          mkdir deploy
+          cp index.html deploy/
+          cp exam.min.js deploy/
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: website
+          path: deploy
